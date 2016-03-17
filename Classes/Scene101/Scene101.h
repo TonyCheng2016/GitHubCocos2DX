@@ -12,7 +12,8 @@ private:
 	cocos2d::Rect    rectCuber;
 	cocos2d::Rect    rectReplay;
 	cocos2d::Rect    rectReturn;
-//	cocos2d::Label *label1;
+
+	cocos2d::Point  cpt;
 	int  _sceneno;
 	char _cSceneNo[10];
 
