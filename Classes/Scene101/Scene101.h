@@ -13,7 +13,6 @@ private:
 	cocos2d::Rect    rectReplay;
 	cocos2d::Rect    rectReturn;
 
-	cocos2d::Point  cpt;
 	int  _sceneno;
 	char _cSceneNo[10];
 

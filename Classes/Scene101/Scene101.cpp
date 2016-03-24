@@ -33,27 +33,18 @@ bool Scene101::init()
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	Size size;
 
-	SpriteFrameCache::getInstance()->addSpriteFramesWithFile("Scene101/scene101.plist");
-
 	//以 Sprite 作為背景
-	Sprite *bkimage = Sprite::createWithSpriteFrameName("s101bgimg.png");
-	// 使用 create 函式,給予檔名即可
+	Sprite *bkimage = Sprite::create(HOME_BACKGROUND);  // 使用 create 函式,給予檔名即可
 	bkimage->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y)); // 位置通常放置在螢幕正中間
 	this->addChild(bkimage, 0);
 
 	// 自行增加 sprite 將 bean01.png 到螢幕正中間
-	Sprite *bean = Sprite::create("scene101/bean01.png");  // 使用 create 函式,給予檔名即可
-	bean->setPosition(Vec2(330, 593)); // 位置通常放置在螢幕正中間
-	this->addChild(bean, 0);
 
-	char buffer[100] = "";
-	sprintf(buffer, "%5.1f", visibleSize.width);
 
 	// create and initialize a label, add a label shows "Scene 101"
-	//auto label = Label::createWithTTF("Scene 101", "fonts/Marker Felt.ttf", 32);
-	auto label = Label::createWithTTF(buffer, "fonts/Marker Felt.ttf", 32);
-	//label->setAlignment(cocos2d::TextHAlignment::CENTER); // 預設靠左對齊
-	//label->setWidth(100);	// 設定每行文字的顯示寬度
+	auto label = Label::createWithTTF("Scene 101", "fonts/Marker Felt.ttf", 32);
+	label->setAlignment(cocos2d::TextHAlignment::CENTER); // 預設靠左對齊
+	label->setWidth(100);	// 設定每行文字的顯示寬度
 	size = label->getContentSize();
 	label->setPosition(Vec2(origin.x + visibleSize.width - size.width / 2 - 10, origin.y + visibleSize.height - size.height / 2 - 10));
 	this->addChild(label, 1);
@@ -128,8 +119,7 @@ bool  Scene101::onTouchBegan(cocos2d::Touch *pTouch, cocos2d::Event *pEvent)//�
 {
 	Point touchLoc = pTouch->getLocation();
 	if (rectCuber.containsPoint(touchLoc)) {
-		//this->cuberbtn->setColor(Color3B::GRAY);
-		this->cuberbtn->setOpacity(0);
+
 	}
 	if (rectReplay.containsPoint(touchLoc)) {
 
@@ -150,10 +140,7 @@ void  Scene101::onTouchMoved(cocos2d::Touch *pTouch, cocos2d::Event *pEvent) //�
 
 void  Scene101::onTouchEnded(cocos2d::Touch *pTouch, cocos2d::Event *pEvent) //觸碰結束事件 
 {
-	Point touchLoc = pTouch->getLocation();
-	if (rectCuber.containsPoint(touchLoc)) {
-		//this->cuberbtn->setColor(Color3B::WHITE);
-		this->cuberbtn->setOpacity(255);
-	}
-	
+
+
+
 }
